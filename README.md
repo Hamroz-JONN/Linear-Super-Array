@@ -40,7 +40,7 @@ python scripts/reproduce_all.py
 
 **4. Expected output**
 
-The script verifies the beamformer, then prints Directivity Factor (DF) and White Noise Gain (WNG) at the seven evaluation frequencies:
+The script verifies the beamformer, then prints Directivity Factor (DF) and White Noise Gain (WNG) at the seven evaluation frequencies, using the Jacobi–Anger design (the exact null-constrained design agrees to within 0.09 dB):
 
 ```
   f (Hz) |   DF (dB) |   WNG (dB)
@@ -79,7 +79,7 @@ pytest tests/
 
 - Spacing is 0.5 cm between neighbouring microphones, giving a 3 cm aperture.
 - `p_m = 1` is omnidirectional and `p_m = 0` is a pure dipole. The response is `g_m(θ, φ) = p_m + (1 − p_m)·cos(θ − α_m)·sin φ`.
-- The code centres the array on the origin (positions −1.5 to +1.5 cm). This is a global phase shift and has no effect on DF or WNG.
+- The code centres the array on the origin (positions −1.5 to +1.5 cm), as the Jacobi–Anger design requires. Moving the array changes that design's WNG by up to 1.7 dB at 3.5 kHz (see [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md#2-array-origin)).
 - Look direction: θ = 0°, φ = 90° (end-fire). Prescribed nulls: ±106° and ±153° in the horizontal plane.
 
 Every convention behind these choices is listed with its source in [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md).
