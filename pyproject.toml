@@ -1,0 +1,10 @@
+[project]
+name = "lsa-beamformer-reproduction"
+version = "1.0.0"
+description = "Documented reproduction of the conventional mixed-directivity linear superarray beamformer"
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

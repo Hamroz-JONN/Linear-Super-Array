@@ -1,0 +1,5 @@
+# Tested versions (Python 3.13). Any recent release should work; the code needs only NumPy and SciPy.
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2   # only for scripts/make_figures.py
+pytest==9.1.1        # only for the test suite
